@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 
 export const AddContact = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {
-		
-	}, []);
+	useEffect(() => {}, []);
 
 	return (
 		<div className="container">

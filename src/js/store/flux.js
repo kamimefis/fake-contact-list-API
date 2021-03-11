@@ -7,7 +7,8 @@ const getState = ({ getStore, setStore }) => {
 				phone: "",
 				address: "",
 				agenda_slug: "lila"
-			}
+			},
+			contactList: []
 		},
 		actions: {
 			onChangeContact: e => {
@@ -32,6 +33,16 @@ const getState = ({ getStore, setStore }) => {
 				const data = await res.json();
 
 				console.log(data);
+			},
+			getContacts: async () => {
+				const config = {
+					method: "GET",
+					headers: { "Content-Type": "application/json" }
+				};
+				const res = await fetch("https://assets.breatheco.de/apis/fake/contact/agenda/lila", config);
+				const data = await res.json();
+
+				setStore({ contactList: data });
 			}
 		}
 	};
